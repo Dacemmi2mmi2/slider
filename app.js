@@ -24,16 +24,9 @@ const imgReview = (visibility, itemSlider) => {
 }
 
 
-let counter = 0;
-const imgReviewMobile = itemSlider => {
-    console.log(itemSlider);
-    console.log(counter);
-    console.log(itemSlider.firstElementChild);
-    counter % 2 ? itemSlider.firstElementChild.style.display = 'none' : itemSlider.firstElementChild.style.display = 'block';
-    console.log(itemSlider.firstElementChild);
-    counter++;
-    console.log(counter);
-
+const imgReviewMobile = item => {
+    let styleItem = window.getComputedStyle(item.firstElementChild);
+    styleItem.display === 'block' ? item.firstElementChild.style.display = 'none' : item.firstElementChild.style.display = 'block';
 }
 
 
