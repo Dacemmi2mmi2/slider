@@ -36,7 +36,7 @@ const imgReviewMobile = (itemSlider) => {
 allItemsSlider.forEach(item => {
     item.addEventListener('mouseover', () => imgReview(true, item), false);
     item.addEventListener('mouseout', () => imgReview(false, item), false);
-    item.addEventListener('touchstart', () => imgReviewMobile(item), false);
+    // item.addEventListener('touchstart', () => imgReviewMobile(item), false);
 });
 
 
