@@ -26,6 +26,8 @@ const imgReview = (visibility, itemSlider) => {
 
 let counter = 0;
 const imgReviewMobile = itemSlider => {
+    console.log(itemSlider);
+    console.log(counter);
     counter % 2 ? itemSlider.firstElementChild.style.display = 'none' : itemSlider.firstElementChild.style.display = 'block';
     counter++;
 }
