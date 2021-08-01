@@ -26,6 +26,7 @@ const imgReview = (visibility, itemSlider) => {
 
 const imgReviewMobile = item => {
     let styleItem = window.getComputedStyle(item.firstElementChild);
+    item.firstElementChild.removeAttribute('style');
     styleItem.display === 'block' ? item.firstElementChild.style.display = 'none' : item.firstElementChild.style.display = 'block';
     console.log(styleItem.display)
 }
