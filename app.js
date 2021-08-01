@@ -4,15 +4,13 @@ const rightArrow = document.querySelector('.dd_right_arrow');
 const visiblePartSlider = document.querySelector('.dd_visible_part_slider');
 
 const slider = document.querySelector('.dd_slider');
+const itemSlider = document.querySelector('.item_of_slider:first-child');
 const allItemsSlider = document.querySelectorAll('.item_of_slider');
 
 
-const moveSlider = (side) => {
-    if (side === 'right') {
-        console.log('right');
-    } else {
-        console.log('left')
-    }
+const moveSlider = side => {
+    let widthItemSlider = itemSlider.offsetWidth;
+    side === 'right' ? visiblePartSlider.scrollLeft += widthItemSlider : visiblePartSlider.scrollLeft -= widthItemSlider;
 }
 
 
@@ -27,7 +25,7 @@ const imgReview = (visibility, itemSlider) => {
 
 
 let counter = 0;
-const imgReviewMobile = (itemSlider) => {
+const imgReviewMobile = itemSlider => {
     counter % 2 ? itemSlider.firstElementChild.style.display = 'none' : itemSlider.firstElementChild.style.display = 'block';
     counter++;
 }
@@ -36,12 +34,5 @@ const imgReviewMobile = (itemSlider) => {
 allItemsSlider.forEach(item => {
     item.addEventListener('mouseover', () => imgReview(true, item), false);
     item.addEventListener('mouseout', () => imgReview(false, item), false);
-    // item.addEventListener('touchstart', () => imgReviewMobile(item), false);
+    item.addEventListener('touchend', () => imgReviewMobile(item), false);
 });
-
-
-
-if (contentBlock.offsetWidth < 1024) {
-    rightArrow.style.display = 'none';
-    leftArrow.style.display = 'none';
-}
