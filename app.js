@@ -28,8 +28,12 @@ let counter = 0;
 const imgReviewMobile = itemSlider => {
     console.log(itemSlider);
     console.log(counter);
+    console.log(itemSlider.firstElementChild);
     counter % 2 ? itemSlider.firstElementChild.style.display = 'none' : itemSlider.firstElementChild.style.display = 'block';
+    console.log(itemSlider.firstElementChild);
     counter++;
+    console.log(counter);
+
 }
 
 
