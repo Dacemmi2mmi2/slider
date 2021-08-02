@@ -57,6 +57,13 @@
 }
 .dd_slider .item_of_slider img.front { z-index: 10; }
 .dd_slider .item_of_slider img.back { z-index: 0; }
+.dd_slider .item_of_slider img.front:first-child {
+    top: 10px;
+    left: 10px;
+    width: 25px;
+    height: 25px;
+    z-index: 11;
+}
 
 
 .dd_left_arrow,

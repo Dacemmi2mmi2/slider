@@ -12,26 +12,18 @@ const moveSlider = side => {
     let widthItemSlider = itemSlider.offsetWidth;
     side === 'right' ? visiblePartSlider.scrollLeft += widthItemSlider : visiblePartSlider.scrollLeft -= widthItemSlider;
 }
-
-
 rightArrow.addEventListener('click', () => { moveSlider('right') }, false);
 leftArrow.addEventListener('click', () => { moveSlider('left') }, false);
 
 
-const imgReview = (visibility, itemSlider) => {
-    visibility ? itemSlider.firstElementChild.style.display = 'none' : null;
-    !visibility ? itemSlider.firstElementChild.style.display = 'block' : null;
+const imgReview = itemSlider => {
+    let valueDisplay = window.getComputedStyle(itemSlider.firstElementChild).display;
+    if (valueDisplay === 'block') {
+        Array.from(itemSlider.children).forEach(item => {
+            item.className === 'front' ? item.style.display = 'none' : null;
+        });
+    } else {
+        Array.from(itemSlider.children).forEach(item => item.style.display = 'block');
+    }
 }
-
-
-const imgReviewMobile = item => {
-    let styleItem = window.getComputedStyle(item.firstElementChild).display;
-    styleItem === 'block' ? item.firstElementChild.style.display = 'none' : item.firstElementChild.style.display = 'block';
-}
-
-
-allItemsSlider.forEach(item => {
-    item.addEventListener('mouseover', () => imgReview(true, item), false);
-    item.addEventListener('mouseout', () => imgReview(false, item), false);
-    item.addEventListener('touchstart', () => imgReviewMobile(item), false);
-});
+allItemsSlider.forEach(item => item.addEventListener('click', () => imgReview(item)));
